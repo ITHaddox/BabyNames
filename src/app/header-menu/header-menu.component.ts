@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from './../services/auth.service';
 
 @Component({
   selector: 'app-header-menu',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderMenuComponent implements OnInit {
 
-  constructor() { }
+  
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+  }
+
+
+
+  loggedIn(){
+    return this.authService.isUserLoggedIn()
   }
 
 }

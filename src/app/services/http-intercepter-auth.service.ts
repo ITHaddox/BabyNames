@@ -12,13 +12,15 @@ export class HttpIntercepterAuthService implements HttpInterceptor{
   ) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler){
-    let authHeaderString = this.authService.getAuthenticatedToken();
-    let username = this.authService.getAuthenticatedUser();
+    // let authHeaderString = this.authService.getAuthenticatedToken();
+    // let username = this.authService.getAuthenticatedUser();
 
-    if(authHeaderString && username){
+    // console.log("token is this" + authHeaderString);
+
+    if(sessionStorage.getItem('username') && sessionStorage.getItem('token')){
       request = request.clone({
         setHeaders:{
-          Authorization : authHeaderString
+          Authorization: sessionStorage.getItem('token')          
         }
       })
     }

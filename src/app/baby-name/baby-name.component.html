@@ -1,0 +1,26 @@
+<H1>Baby Name</H1>
+
+<div class="container">
+  <!-- <div class="alert alert-warning" *ngIf="babyNameForm.dirty && babyNameForm.invalid">Enter valid values</div> -->
+  <!-- <div class="alert alert-warning" *ngIf="babyNameForm.dirty && targetDate.invalid">Enter valid Target Date</div> -->
+  <!-- <div class="alert alert-warning" *ngIf="babyNameForm.dirty && description.invalid">Enter atleast 5 characters in Description</div> -->
+  
+  <form (ngSubmit)="!babyNameForm.invalid && saveBabyName()" #babyNameForm="ngForm">
+    <fieldset class="form-group">
+      <label>New Baby Name</label>
+      <input type="text" #name="ngModel" 
+            [(ngModel)]="babyName.name" class="form-control" 
+                name="name" required="required">
+    </fieldset>
+
+    <!-- <fieldset class="form-group">
+        <label>Target Date</label>
+        <input type="date" #targetDate="ngModel"
+        [ngModel]="todo.targetDate | date:'yyyy-MM-dd' "
+        (ngModelChange)="todo.targetDate = $event"
+        class="form-control" name="targetDate" required="required" >
+    </fieldset> -->
+
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>  
+</div>

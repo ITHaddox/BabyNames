@@ -1,0 +1,54 @@
+<h1>Baby Names</h1>
+<div>
+  {{msg}}
+</div>
+
+<div class="container">
+  <div class="boy-card">
+    <table class="table boy-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Votes</th>
+        </tr>
+      </thead>
+      <tbody>
+                <tr *ngFor="let name of boyNames"> 
+                  <td>{{name.name}}</td>
+                  <td>{{name.votes}}</td>
+                  <td><button (click)="updateBabyName(name.id)" class="btn btn-success">Update</button></td>
+                  <td><button (click)="deleteBabyName(name.id)" class="btn btn-warning">Delete</button></td>              
+                </tr>
+      </tbody>
+    </table>
+    
+    <div class="row">
+      <button (click)=addBabyName() class="btn btn-success">Add Name</button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="girl-card">
+    <table class="table girl-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Votes</th>
+        </tr>
+      </thead>
+      <tbody>
+                <tr *ngFor="let name of girlNames">
+                  <td>{{name.name}}</td>
+                  <td>{{name.votes}}</td>
+                  <td><button (click)="updateBabyName(name.id)" class="btn btn-success">Update</button></td>
+                  <td><button (click)="deleteBabyName(name.id)" class="btn btn-warning">Delete</button></td>
+                </tr>
+      </tbody>  
+    </table>  
+    
+    <div class="row">
+      <button (click)=addBabyName() class="btn btn-success">Add Name</button>
+    </div>  
+  </div>
+</div>

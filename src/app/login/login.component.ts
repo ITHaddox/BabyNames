@@ -10,7 +10,7 @@ import { AuthService } from '../services/auth.service';
 export class LoginComponent implements OnInit {
 
   username = 'tyler'
-  password = 'pass'
+  password = 'password'
   errorMessage = 'Invalid Credentials'
   invalidLogin = false
 
@@ -23,8 +23,9 @@ export class LoginComponent implements OnInit {
     this.authService.executeJWTAuthenticationService(this.username, this.password)
     .subscribe(
       data => {
+        console.log("token created")
         console.log(data)
-        this.router.navigate(['hub'])
+        this.router.navigate(['list-baby-names'])
         this.invalidLogin = false
       },
       error => {
